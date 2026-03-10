@@ -134,7 +134,7 @@ script_05_otros_usos() {
     # Si la variable está sin definir o vacía se muestra un error. En caso
     # contrario se le asigna un valor por defecto
     # ${variable:?valorpordefecto}
-    echo "Valor de: ${EJEMPLO:?'Roberto'} y luego {EJEMPLO}"
+    echo "Valor de: ${EJEMPLO: 'Roberto'} y luego {EJEMPLO}"
     
     # Otros
     # ${!prefijo*} : nos devuelve una lista de las variables que comienzan
@@ -619,10 +619,8 @@ script_18_colores() {
 #MENÚ PRINCIPAL
 mostrar_menu() {
     limpiar
-    echo "========================================================"
-    echo "    MENU DE 18 SCRIPTS DE SHELL LINUX"
-    echo "    Taller Shell, comandos y programacion"
-    echo "========================================================"
+    echo "MENU DE 18 SCRIPTS DE SHELL LINUX"
+    echo "Taller Shell, comandos y programacion"
     echo ""
     echo "Seccion 1: Variables y Datos"
     echo "  1)  Hola Mundo"
