@@ -1,3 +1,116 @@
 Archivo para la lista de comandos de los niveles de Bandit.
 
-1.
+0. ls, cat readme
+1. ls, cat ./-
+2. ls, cat -- "--spaces in this filename--"
+3. ls -alps, cd ./inhere, cat ...Hiding-From-You
+4. ls -alps, cd ./inhere, find . -type f | xargs file, cat ./-file07
+5. ls, cd inhere, find -type f -size 1033c ! -executable, cat ./maybehere07/.file2
+6. ls -alps, find / -type f -user bandit7 -group bandit6 -size 33c, cat /var/lib/dpkg/info/bandit7.password
+7. ls, cat data.txt | grep "millionth"
+8. ls, sort data.txt | uniq -u
+9. ls, string data.txt | grep "="
+10. ls, base64 -d data.txt
+11. ls, cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+12. ls, cat data.txt, mkdir /tmp/bandit12nivel, 
+
+cp data.txt /tmp/bandit12work/ && cd /tmp/bandit12work, 
+
+xxd -r data.txt > data.bin && file data.bin, 
+
+mv data.bin data.gz && gunzip data.gz,
+
+mv data data.bz2 && bzip2 -d data.bz2, file data
+
+mv data data.gz && gunzip data.gz, file data
+
+mv data data.tar && tar xf data.tar && ls, file data5.bin
+
+mv data5.bin data2.tar && tar xf data2.tar && ls, file data6.bin
+
+mv data6.bin data3.bz2 && bzip2 -d data3.bz2 && ls, file data8.bin
+
+mv data8.bin data4.gz && gunzip data4.gz, file data4, cat data4
+
+13. ls, cat sshkey.private, exit, nano ~/.ssh/bandit.key, 
+
+chmod 600 ~/.ssh/bandit14.key, 
+
+ssh -i ~/.ssh/bandit14.key bandit14@bandit.labs.overthewire.org -p 2220
+
+14. ls -alps, cat/etc/bandit_pass/bandit14, nc localhost 30000
+15. cat /etc/bandit_pass/bandit15, ncat --ssl localhost 30001
+16. cat /etc/bandit_pass/bandit16, nmap localhost -p 31000-32000, 
+
+ncat --ssl localhost 31790, vim key && chmod 600 key,
+
+ssh -i key bandit17@bandit.labs.overthewire.org -p 2220
+
+17. ls, diff passwords.old password.new
+18. bandit18@bandit.labs.overthewire.org -p 2220 "ls", bandit18@bandit.labs.overthewire.org -p 2220 "cat readme" 
+19. ls -alps, ./bandit20-do, ./bandit20-do cat /etc/bandit_pass/bandit20
+20. ls, cat /etc/bandit_pass/bandit20 ./suconnect, nmap localhost
+
+Esto con el log in del nivel en ambas terminales:
+En la terminal 1:
+cat /etc/bandit_pass/bandit20 | nc -l -p 1234 &
+
+En la terminal 2:
+./suconnect 1234
+
+Y aparecera la contraseña en alguna de las dos terminales.
+
+21. ls /etc/cron.d/, cat /usr/bin/cronjob_bandit22.sh, cat /tmp/(cierta clave que no copiare porque es bastante)
+22. cat /usr/bin/cronjob_bandit23.sh, echo "I am user bandit23" | md5sum | cut -d ' ' -f 1, cat /tmp/(Otra clave larga en hexadecimal)
+23. cat /usr/bin/cronjob_bandit24.sh, mkdir /tmp/bandit23work && chmod 777 /tmp/bandit23work,
+cd /tmp/bandit23work, vim otracopia24, chmod 777 otracopia24, touch pass && chmod 777, 
+
+En vim otracopia24 se pone lo siguiente:
+cat /etc/bandit_pass/bandit24 > /tmp/bandit23work/pass
+
+En la terminal:
+cp /tmp/bandit23work/otracopia24 /var/spool/bandit24/foo/
+
+cat pass
+
+24. mkdir /tmp/bandit24work && chmod 777 /tmp/bandit24work, vim bruteforce.sh && chmod 777 bruteforce.sh
+
+Dentro del archivo:
+#!/bin/bash
+PASS=$(cat /etc/bandit_pass/bandit24)
+
+for i in $(seq -w 0000 9999); do echo "$PASS $i"; done > /tmp/bandit24work/pins.txt
+
+nc -q 1 localhost 30002 < /tmp/bandit24work/pins.txt | grep -v "Wrong"
+
+En la terminal:
+./bruteforce.sh
+
+25. ls, cat bandit26.sshkey, copiar y pegar el contenido, exit
+
+Fuera del usuario bandi25:
+nano ~/key26 && chmod 600 ~/key26
+
+ssh -i ~/key26 bandit26@bandit.labs.labs.overthewire.org -p 2220
+
+Teniendo el tamaño lo suficientemente chivo, la pantalla, en la parte de "more (cierto porcentaje)" presionar la
+tecla "v":
+:e cat /etc/bandit_pass/bandit26
+
+Se obtiene la contraseña...
+
+¡¡¡LA CONTRASEÑO NO SIRVE DE NADA!!!
+Volvemos a achicar la pantalla y presionamos la tecla "v":
+:set shell=/bin/bash
+:shell
+
+26. ls, ./bandit27-do cat /etc/bandit_pass/bandit27
+27. git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo, cd ./repo, ls -alps, cat README
+28. git clone ssh://bandit28-git@bandit.labs.overthewire.org:2220/home/bandit28-git/repo, cd ./repo, ls -alps, cat README.md, git diff HEAD~1 HEAD
+29. git clone ssh://bandit29-git@bandit.labs.overthewire.org:2220/home/bandit29-git/repo, cd ./repo, ls -alps, cat README.md, git branch -a, git checkout dev, ls, cat README.md
+30. git clone ssh://bandit30-git@bandit.labs.overthewire.org:2220/home/bandit30-git/repo, cd ./repo, ls -alps, cat README.md, git branch -a, git tag, git show secret
+31. git clone ssh://bandit31-git@bandit.labs.overthewire.org:2220/home/bandit31-git/repo, cd ./repo, ls -alps, cat README.md, cat .gitignore, git add -f key.txt,
+ git push, git config --global user.email "2403007382@ucaribe.edu.mx", git config --global user.name "allan", git commit -m "add key.txt", git push
+32. $0, whoami, cat /etc/bandit_pass/bandit33
+33. ls, cat README.txt
