@@ -156,15 +156,15 @@ game_over() {
 #Mueve la serpiente un paso
 mover() {
     local len=${#sx[@]}
-    local nx=$(( ${sx[0]} + dx ))
-    local ny=$(( ${sy[0]} + dy ))
+    local nx=$(( ${sx[$((len-1))]} + dx ))
+    local ny=$(( ${sy[$((len-1))]} + dy ))
 
-    #Choque con los bordes → game over
+    #Choque con los bordes: game over
     if (( nx<=OX || nx>OX+H || ny<=OY || ny>OY+W )); then
         game_over; return
     fi
 
-    #Choque con su propio cuerpo → game over
+    #Choque con su propio cuerpo: game over
     for ((i=1; i<len-1; i++)); do
         if (( nx==sx[i] && ny==sy[i] )); then
             game_over; return
@@ -199,7 +199,7 @@ mover() {
         esac
     fi
 
-    # ¿Comió la trampa? → invertir controles por 12 movimientos
+    # ¿Comió la trampa?: invertir controles por 12 movimientos
     if (( trampa_x>0 && nx==trampa_x && ny==trampa_y )); then
         invertido=12
         ir $trampa_x $trampa_y; echo -ne " "
