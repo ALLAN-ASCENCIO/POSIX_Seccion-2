@@ -77,10 +77,39 @@ integer_to_ascii() {
 #######################################################
 
 #Script 3
-#DIFFICULT_SquareRoot() {
+DIFFICULT_SquareRoot() {
+    #Metodo Babilónico para calcular la raíz cuadrada
+    limpiar
+    echo "DIFFICULT: Square Root"
+    echo "-----------------------"
+    echo "Introduce un número para calcular su raíz cuadrada:"
+    read argument
 
-#}
+    if [ "$(echo "$argument < 0" | bc -l)" = "1" ]; then
+        echo "No se pueden calcular raíces cuadradas de números negativos."
+        pausar
+        return
+    elif [ "$(echo "$argument == 0" | bc -l)" = "1" ]; then
+        echo "La raíz cuadrada de 0 es 0."
+        pausar
+        return
+    fi
 
+    guess=$argument
+    oldguess=0
+    tolerance=0.000001
+    loopcnt=0
+
+    while [ "$(echo "($guess - $oldguess)^2 > $tolerance^2" | bc -l)" = "1" ]; do
+        oldguess=$guess
+        guess=$(echo "scale=6; ($oldguess + ($argument / $oldguess)) / 2" | bc -l)
+        loopcnt=$((loopcnt + 1))
+    done
+
+    echo "La raíz cuadrada de $argument es aproximadamente: $guess"
+    echo "Número de iteraciones: $loopcnt"
+    pausar
+}
 
 #MENÚ PRINCIPAL
 mostrar_menu() {
@@ -91,7 +120,7 @@ mostrar_menu() {
     echo "3. DIFFICULT: Square Root"
     echo "0. Salir"
     echo ""
-    echo -n "Selecciona una opcion [0-3]: "
+    echo "Selecciona una opcion [0-3]: "
 }
 
 #MENÚ ASCII TO INTEGER
@@ -102,7 +131,7 @@ mostrar_menu_ascii() {
     echo "2. Integer to ASCII"
     echo "0. Volver al menu principal"
     echo ""
-    echo -n "Selecciona una opcion [0-2]: "
+    echo "Selecciona una opcion [0-2]: "
 }
 
 #BUCLE PRINCIPAL
