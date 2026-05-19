@@ -44,3 +44,4 @@ r-lectura w-escritura x-ejecucion
 r=4 w=2 x=1 -=0
 
 ## clase 4                        30/04/26.
+Data Day.
